@@ -1,6 +1,6 @@
 # Object-Oriented Programming (OOP) – Full Concept in PHP
 
-এই প্রোজেক্টে আমরা **Object-Oriented Programming (OOP)** এর মূল কনসেপ্টগুলোকে সহজ ভাষায়, প্র্যাক্টিকাল উদাহরণসহ বুঝবো।  
+এই প্রোজেক্টে আমরা **Object-Oriented Programming (OOP)** এর মূল কনসেপ্টগুলোকে সহজ ভাষায়, প্র্যাক্টিকাল উদাহরণসহ বুঝবো।  
 কোড উদাহরণগুলো PHP তে, তবে কনসেপ্ট সব OOP ভাষাতেই একই রকম।
 
 ---
@@ -25,12 +25,12 @@
 
 ## What is OOP?
 
-**OOP (Object-Oriented Programming)** হচ্ছে এমন এক programming style যেখানে আমরা আমাদের কোডকে **objects** আর **classes** দিয়ে organize করি।
+**OOP (Object-Oriented Programming)** হচ্ছে এমন এক programming style যেখানে আমরা আমাদের কোডকে **objects** আর **classes** দিয়ে organize করি।
 
 - **Class** → Blue-print / ডিজাইন  
 - **Object** → সেই design থেকে তৈরি real instance
 
-👉 Benefits:
+👉 **Benefits:**
 
 - Code Reusability  
 - Easy to Maintain  
@@ -56,9 +56,10 @@ class User {
 }
 ```
 
-🔹 Object
+### 🔹 Object
 
 Object হলো class এর একটি instance।
+
 ```php
 $user = new User();
 $user->name  = "Sheek Forid";
@@ -66,16 +67,16 @@ $user->email = "sheek@example.com";
 $user->introduce();
 ```
 
+---
+
 ## Four Pillars of OOP
-1. Encapsulation
 
-Encapsulation মানে হলো ডেটা এবং সেই ডেটার সাথে সম্পর্কিত ফাংশনকে একসাথে রাখা এবং ডেটাকে protection দেওয়া।
+### 1. Encapsulation
 
-ডেটা কে outside থেকে direct access না দিয়ে
+**Encapsulation** মানে হলো ডেটা এবং সেই ডেটার সাথে সম্পর্কিত ফাংশনকে একসাথে রাখা এবং ডেটাকে protection দেওয়া।
 
-method এর মাধ্যমে control করা হয়
-
-সাধারণত private + getter/setter ব্যবহার করা হয়
+- ডেটা কে outside থেকে direct access না দিয়ে method এর মাধ্যমে control করা হয়
+- সাধারণত `private` + getter/setter ব্যবহার করা হয়
 
 ```php
 class BankAccount {
@@ -104,18 +105,18 @@ $account->withdraw(300);
 echo $account->getBalance(); // 700
 ```
 
-### Key idea: balance সরাসরি বাইরে থেকে change করা যাচ্ছে না, সব কিছু method দিয়ে হচ্ছে।
+**Key idea:** `balance` সরাসরি বাইরে থেকে change করা যাচ্ছে না, সব কিছু method দিয়ে হচ্ছে।
 
-2. Inheritance
+---
 
-Inheritance মানে একটি class আরেকটি class এর property ও method গুলো ইনহেরিট করে।
+### 2. Inheritance
 
-Code Reuse
+**Inheritance** মানে একটি class আরেকটি class এর property ও method গুলো ইনহেরিট করে।
 
-Base (Parent) Class → Child (Derived) Class
+- Code Reuse
+- Base (Parent) Class → Child (Derived) Class
 
 ```php
-
 class Vehicle {
     public $brand;
 
@@ -136,15 +137,15 @@ $car->start(); // from parent
 $car->honk();  // from child
 ```
 
-3. Polymorphism
+---
 
-Polymorphism মানে "many forms" – একই method নাম different ভাবে behave করতে পারে, context অনুযায়ী।
+### 3. Polymorphism
+
+**Polymorphism** মানে "many forms" – একই method নাম different ভাবে behave করতে পারে, context অনুযায়ী।
 
 সাধারণত দুই ভাবে আসে:
-
-Method Overriding (parent vs child)
-
-(কিছু language এ Method Overloading – কিন্তু PHP তে সত্যিকারের overloading নেই)
+- Method Overriding (parent vs child)
+- (কিছু language এ Method Overloading – কিন্তু PHP তে সত্যিকারের overloading নেই)
 
 ```php
 class Shape {
@@ -172,15 +173,16 @@ foreach ($shapes as $shape) {
 }
 ```
 
-4. Abstraction
+---
 
-Abstraction মানে হলো unnecessary details hide করে শুধু প্রয়োজনীয় অংশ expose করা।
+### 4. Abstraction
 
-abstract class এবং interface দিয়ে abstraction করা হয়
+**Abstraction** মানে হলো unnecessary details hide করে শুধু প্রয়োজনীয় অংশ expose করা।
 
-Abstract class এ abstract method থাকে, যার body থাকে না
+- `abstract class` এবং `interface` দিয়ে abstraction করা হয়
+- Abstract class এ abstract method থাকে, যার body থাকে না
+- Child class এ সেই method implement করতেই হবে
 
-Child class এ সেই method implement করতেই হবে
 ```php
 abstract class PaymentGateway {
     abstract public function pay($amount);
@@ -207,18 +209,18 @@ class PaypalPayment extends PaymentGateway {
 $payment = new StripePayment();
 $payment->pay(500);
 ```
-Access Modifiers
 
-Access Modifiers দিয়ে আমরা ঠিক করি কোন property/method কোথায় থেকে access করা যাবে।
+---
 
-public → class এর ভিতর ও বাইরে সব জায়গা থেকে access করা যায়
+## Access Modifiers
 
-protected → শুধু class এবং এর child class থেকে access করা যায়
+Access Modifiers দিয়ে আমরা ঠিক করি কোন property/method কোথায় থেকে access করা যাবে।
 
-private → শুধুমাত্র সেই class এর ভিতর থেকে access করা যায়
+- **`public`** → class এর ভিতর ও বাইরে সব জায়গা থেকে access করা যায়
+- **`protected`** → শুধু class এবং এর child class থেকে access করা যায়
+- **`private`** → শুধুমাত্র সেই class এর ভিতর থেকে access করা যায়
 
 ```php
-
 class Demo {
     public $publicVar = "Public";
     protected $protectedVar = "Protected";
@@ -239,13 +241,16 @@ class ChildDemo extends Demo {
     }
 }
 ```
-Constructor & Destructor
 
-🔹 Constructor
+---
 
-Object তৈরি হওয়ার সময় যেই method স্বয়ংক্রিয়ভাবে কল হয়, তাকে constructor বলে। PHP তে এর নাম __construct()।
+## Constructor & Destructor
+
+### 🔹 Constructor
+
+Object তৈরি হওয়ার সময় যেই method স্বয়ংক্রিয়ভাবে কল হয়, তাকে constructor বলে। PHP তে এর নাম `__construct()`।
+
 ```php
-
 class User {
     public $name;
 
@@ -258,12 +263,11 @@ class User {
 $user = new User("Forid");
 ```
 
-🔹 Destructor
+### 🔹 Destructor
 
-Object destroy হওয়ার সময় call হয় __destruct()।
+Object destroy হওয়ার সময় call হয় `__destruct()`।
 
 ```php
-
 class FileHandler {
     public function __construct() {
         echo "File opened\n";
@@ -276,16 +280,17 @@ class FileHandler {
 
 $fh = new FileHandler();
 ```
-Interfaces
 
-Interface হলো pure abstraction – এখানে শুধু method signature থাকে, কোনো implement থাকে না।
+---
 
-যে class interface implement করবে, তাকে interface এর সব method implement করতে হবে
+## Interfaces
 
-এক class একাধিক interface implement করতে পারে (Multiple inheritance এর বিকল্প হিসেবে)
+**Interface** হলো pure abstraction – এখানে শুধু method signature থাকে, কোনো implement থাকে না।
+
+- যে class interface implement করবে, তাকে interface এর সব method implement করতে হবে
+- এক class একাধিক interface implement করতে পারে (Multiple inheritance এর বিকল্প হিসেবে)
 
 ```php
-
 interface Logger {
     public function log($message);
 }
@@ -309,12 +314,14 @@ function process(Logger $logger) {
 process(new FileLogger());
 process(new DatabaseLogger());
 ```
-Traits (PHP Specific)
 
-PHP তে multiple inheritance নেই, কিন্তু আমরা traits এর মাধ্যমে বিভিন্ন common method আলাদা করে রেখে বিভিন্ন class এ reuse করতে পারি।
+---
+
+## Traits (PHP Specific)
+
+PHP তে multiple inheritance নেই, কিন্তু আমরা **traits** এর মাধ্যমে বিভিন্ন common method আলাদা করে রেখে বিভিন্ন class এ reuse করতে পারি।
 
 ```php
-
 trait HasCreatedAt {
     public function setCreatedAt() {
         $this->created_at = date('Y-m-d H:i:s');
@@ -341,12 +348,13 @@ $post->setUpdatedAt();
 var_dump($post);
 ```
 
-Static Properties & Methods
+---
 
-static keyword দিয়ে declare করা property/method কে class থেকে direct access করা যায় — object create না করেই।
+## Static Properties & Methods
+
+`static` keyword দিয়ে declare করা property/method কে class থেকে direct access করা যায় — object create না করেই।
 
 ```php
-
 class MathHelper {
     public static $pi = 3.1416;
 
@@ -359,7 +367,9 @@ echo MathHelper::$pi . "\n";           // static property
 echo MathHelper::square(5) . "\n";     // static method
 ```
 
-## 🚀 How to Run
+---
+
+## 🚀 How to Run These Examples
 
 ১. আপনার পিসিতে **PHP** ইনস্টল করা থাকতে হবে।  
 ২. যেকোনো একটি উদাহরণ কপি করে একটি `.php` ফাইলে রাখুন (যেমন: `oop.php`)।  
@@ -368,5 +378,7 @@ echo MathHelper::square(5) . "\n";     // static method
 ```bash
 php oop.php
 ```
+
 ---
+
 **Created with ❤️ by [Sheek Forid](https://github.com/forid1026)**
