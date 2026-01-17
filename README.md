@@ -66,7 +66,7 @@ $user->email = "sheek@example.com";
 $user->introduce();
 ```
 
-### Four Pillars of OOP
+## Four Pillars of OOP
 1. Encapsulation
 
 Encapsulation মানে হলো ডেটা এবং সেই ডেটার সাথে সম্পর্কিত ফাংশনকে একসাথে রাখা এবং ডেটাকে protection দেওয়া।
@@ -116,6 +116,7 @@ Code Reuse
 
 Base (Parent) Class → Child (Derived) Class
 
+```
 <?php
 
 class Vehicle {
@@ -136,6 +137,7 @@ $car = new Car();
 $car->brand = "Toyota";
 $car->start(); // from parent
 $car->honk();  // from child
+```
 
 3. Polymorphism
 
@@ -147,6 +149,7 @@ Method Overriding (parent vs child)
 
 (কিছু language এ Method Overloading – কিন্তু PHP তে সত্যিকারের overloading নেই)
 
+```
 <?php
 
 class Shape {
@@ -172,6 +175,7 @@ $shapes = [new Circle(), new Square()];
 foreach ($shapes as $shape) {
     $shape->draw(); // একই method নাম, but আলাদা আলাদা output
 }
+```
 
 4. Abstraction
 
@@ -182,7 +186,7 @@ abstract class এবং interface দিয়ে abstraction করা হয়
 Abstract class এ abstract method থাকে, যার body থাকে না
 
 Child class এ সেই method implement করতেই হবে
-
+```
 <?php
 
 abstract class PaymentGateway {
@@ -209,7 +213,7 @@ class PaypalPayment extends PaymentGateway {
 
 $payment = new StripePayment();
 $payment->pay(500);
-
+```
 Access Modifiers
 
 Access Modifiers দিয়ে আমরা ঠিক করি কোন property/method কোথায় থেকে access করা যাবে।
@@ -220,6 +224,7 @@ protected → শুধু class এবং এর child class থেকে acces
 
 private → শুধুমাত্র সেই class এর ভিতর থেকে access করা যায়
 
+```
 <?php
 
 class Demo {
@@ -241,12 +246,12 @@ class ChildDemo extends Demo {
         // $this->privateVar; // ❌ Error – private parent থেকে access হবে না
     }
 }
-
+```
 Constructor & Destructor
 🔹 Constructor
 
 Object তৈরি হওয়ার সময় যেই method স্বয়ংক্রিয়ভাবে কল হয়, তাকে constructor বলে। PHP তে এর নাম __construct()।
-
+```
 <?php
 
 class User {
@@ -259,11 +264,13 @@ class User {
 }
 
 $user = new User("Forid");
+```
 
 🔹 Destructor
 
 Object destroy হওয়ার সময় call হয় __destruct()।
 
+```
 <?php
 
 class FileHandler {
@@ -277,7 +284,7 @@ class FileHandler {
 }
 
 $fh = new FileHandler();
-
+```
 Interfaces
 
 Interface হলো pure abstraction – এখানে শুধু method signature থাকে, কোনো implement থাকে না।
@@ -286,6 +293,7 @@ Interface হলো pure abstraction – এখানে শুধু method sig
 
 এক class একাধিক interface implement করতে পারে (Multiple inheritance এর বিকল্প হিসেবে)
 
+```
 <?php
 
 interface Logger {
@@ -310,11 +318,12 @@ function process(Logger $logger) {
 
 process(new FileLogger());
 process(new DatabaseLogger());
-
+```
 Traits (PHP Specific)
 
 PHP তে multiple inheritance নেই, কিন্তু আমরা traits এর মাধ্যমে বিভিন্ন common method আলাদা করে রেখে বিভিন্ন class এ reuse করতে পারি।
 
+```
 <?php
 
 trait HasCreatedAt {
@@ -341,11 +350,13 @@ $post->setCreatedAt();
 $post->setUpdatedAt();
 
 var_dump($post);
+```
 
 Static Properties & Methods
 
 static keyword দিয়ে declare করা property/method কে class থেকে direct access করা যায় — object create না করেই।
 
+```
 <?php
 
 class MathHelper {
@@ -358,7 +369,7 @@ class MathHelper {
 
 echo MathHelper::$pi . "\n";           // static property
 echo MathHelper::square(5) . "\n";     // static method
-
+```
 
 ⚠ Note: Static বেশি use করলে code test করা ও maintain করা কঠিন হয়ে যেতে পারে, তাই balance করে ব্যবহার করা উচিত।
 
