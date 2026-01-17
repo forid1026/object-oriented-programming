@@ -114,8 +114,7 @@ Code Reuse
 
 Base (Parent) Class → Child (Derived) Class
 
-```
-<?php
+```php
 
 class Vehicle {
     public $brand;
