@@ -358,38 +358,5 @@ echo MathHelper::$pi . "\n";           // static property
 echo MathHelper::square(5) . "\n";     // static method
 ```
 
-⚠ Note: Static বেশি use করলে code test করা ও maintain করা কঠিন হয়ে যেতে পারে, তাই balance করে ব্যবহার করা উচিত।
-
-How to Run These Examples
-
-আপনার system এ PHP install করা থাকতে হবে
-
-যেকোনো example একটা .php ফাইলে রাখুন, যেমন: oop_example.php
-
-টার্মিনালে / CMD তে রান করুন:
-
-php oop_example.php
-
-💡 Summary
-
-এই README তে আমরা OOP এর core concepts গুলো দেখেছি:
-
-Class & Object
-
-Encapsulation
-
-Inheritance
-
-Polymorphism
-
-Abstraction
-
-Access Modifiers
-
-Constructor / Destructor
-
-Interfaces
-
-Traits
-
-Static Methods/Properties
+🚀 How to Run
+১. আপনার পিসিতে PHP ইনস্টল করা থাকতে হবে। ২. যেকোনো উদাহরণ একটি .php ফাইলে রাখুন (যেমন: oop.php)। ৩. টার্মিনালে রান করুন:
