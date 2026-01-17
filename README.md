@@ -240,6 +240,7 @@ class ChildDemo extends Demo {
 }
 ```
 Constructor & Destructor
+
 🔹 Constructor
 
 Object তৈরি হওয়ার সময় যেই method স্বয়ংক্রিয়ভাবে কল হয়, তাকে constructor বলে। PHP তে এর নাম __construct()।
