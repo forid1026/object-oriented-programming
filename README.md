@@ -56,7 +56,7 @@ class User {
 }
 ```
 
-###🔹 Object
+🔹 Object
 
 Object হলো class এর একটি instance।
 ```php
