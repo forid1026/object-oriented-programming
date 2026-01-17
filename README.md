@@ -97,8 +97,7 @@ class BankAccount {
         return $this->balance;
     }
 }
-```
-```php
+
 $account = new BankAccount();
 $account->deposit(1000);
 $account->withdraw(300);
@@ -148,8 +147,6 @@ Method Overriding (parent vs child)
 (কিছু language এ Method Overloading – কিন্তু PHP তে সত্যিকারের overloading নেই)
 
 ```
-<?php
-
 class Shape {
     public function draw() {
         echo "Drawing a generic shape\n";
@@ -184,9 +181,7 @@ abstract class এবং interface দিয়ে abstraction করা হয়
 Abstract class এ abstract method থাকে, যার body থাকে না
 
 Child class এ সেই method implement করতেই হবে
-```
-<?php
-
+```php
 abstract class PaymentGateway {
     abstract public function pay($amount);
 
@@ -222,8 +217,7 @@ protected → শুধু class এবং এর child class থেকে acces
 
 private → শুধুমাত্র সেই class এর ভিতর থেকে access করা যায়
 
-```
-<?php
+```php
 
 class Demo {
     public $publicVar = "Public";
@@ -249,8 +243,7 @@ Constructor & Destructor
 🔹 Constructor
 
 Object তৈরি হওয়ার সময় যেই method স্বয়ংক্রিয়ভাবে কল হয়, তাকে constructor বলে। PHP তে এর নাম __construct()।
-```
-<?php
+```php
 
 class User {
     public $name;
@@ -268,8 +261,7 @@ $user = new User("Forid");
 
 Object destroy হওয়ার সময় call হয় __destruct()।
 
-```
-<?php
+```php
 
 class FileHandler {
     public function __construct() {
@@ -291,8 +283,7 @@ Interface হলো pure abstraction – এখানে শুধু method sig
 
 এক class একাধিক interface implement করতে পারে (Multiple inheritance এর বিকল্প হিসেবে)
 
-```
-<?php
+```php
 
 interface Logger {
     public function log($message);
@@ -354,8 +345,7 @@ Static Properties & Methods
 
 static keyword দিয়ে declare করা property/method কে class থেকে direct access করা যায় — object create না করেই।
 
-```
-<?php
+```php
 
 class MathHelper {
     public static $pi = 3.1416;
