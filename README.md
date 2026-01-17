@@ -78,8 +78,6 @@ method এর মাধ্যমে control করা হয়
 সাধারণত private + getter/setter ব্যবহার করা হয়
 
 ```php
-<?php
-
 class BankAccount {
     private $balance = 0;
 
