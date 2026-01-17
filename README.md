@@ -366,6 +366,6 @@ echo MathHelper::square(5) . "\n";     // static method
 
 ```bash
 php oop.php
-
+```
 ---
 **Created with ❤️ by [Sheek Forid](https://github.com/forid1026)**
