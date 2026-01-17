@@ -146,7 +146,7 @@ Method Overriding (parent vs child)
 
 (কিছু language এ Method Overloading – কিন্তু PHP তে সত্যিকারের overloading নেই)
 
-```
+```php
 class Shape {
     public function draw() {
         echo "Drawing a generic shape\n";
@@ -312,8 +312,7 @@ Traits (PHP Specific)
 
 PHP তে multiple inheritance নেই, কিন্তু আমরা traits এর মাধ্যমে বিভিন্ন common method আলাদা করে রেখে বিভিন্ন class এ reuse করতে পারি।
 
-```
-<?php
+```php
 
 trait HasCreatedAt {
     public function setCreatedAt() {
