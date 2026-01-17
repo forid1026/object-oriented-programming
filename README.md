@@ -54,17 +54,19 @@ class User {
         echo "Hi, I am {$this->name} and my email is {$this->email}";
     }
 }
+```
 
-🔹 Object
+###🔹 Object
 
 Object হলো class এর একটি instance।
-
+```php
 $user = new User();
 $user->name  = "Sheek Forid";
 $user->email = "sheek@example.com";
 $user->introduce();
+```
 
-Four Pillars of OOP
+### Four Pillars of OOP
 1. Encapsulation
 
 Encapsulation মানে হলো ডেটা এবং সেই ডেটার সাথে সম্পর্কিত ফাংশনকে একসাথে রাখা এবং ডেটাকে protection দেওয়া।
@@ -75,6 +77,7 @@ method এর মাধ্যমে control করা হয়
 
 সাধারণত private + getter/setter ব্যবহার করা হয়
 
+```php
 <?php
 
 class BankAccount {
@@ -101,9 +104,9 @@ $account = new BankAccount();
 $account->deposit(1000);
 $account->withdraw(300);
 echo $account->getBalance(); // 700
+```
 
-
-Key idea: balance সরাসরি বাইরে থেকে change করা যাচ্ছে না, সব কিছু method দিয়ে হচ্ছে।
+### Key idea: balance সরাসরি বাইরে থেকে change করা যাচ্ছে না, সব কিছু method দিয়ে হচ্ছে।
 
 2. Inheritance
 
