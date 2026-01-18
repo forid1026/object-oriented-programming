@@ -44,4 +44,4 @@ class Comment extends Model
 
 $user = new User;
 
-var_dump($user->created_at->format('d-M-Y'));
+var_dump($user);
