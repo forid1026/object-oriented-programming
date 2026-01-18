@@ -1,18 +1,17 @@
 <?php
-// create a class
+
 class User
 {
-    // properties
-    public $name = 'John Doe';
-
-    // methods
-    public function fullName()
+    public $name;
+    public $email;
+    public function introduce()
     {
-        return 'Sheikh Farid';
+        return "Hi, I am {$this->name} and my email is {$this->email}";
     }
 }
 
-// create an object
-$user = new User();
-var_dump($user->name);
-var_dump($user->fullName());
+$user        = new User;
+$user->name  = "Sheikh Farid";
+$user->email = "foridsheek@gmail.com";
+
+echo $user->introduce();
